@@ -1,0 +1,8 @@
+C:\Users\IDG-Work From Home\documents\visual studio 2013\Projects\Downsampler\Downsampler\bin\Release\Downsampler.exe.config
+C:\Users\IDG-Work From Home\documents\visual studio 2013\Projects\Downsampler\Downsampler\bin\Release\Downsampler.exe
+C:\Users\IDG-Work From Home\documents\visual studio 2013\Projects\Downsampler\Downsampler\bin\Release\Downsampler.pdb
+C:\Users\IDG-Work From Home\documents\visual studio 2013\Projects\Downsampler\Downsampler\obj\Release\Downsampler.Form1.resources
+C:\Users\IDG-Work From Home\documents\visual studio 2013\Projects\Downsampler\Downsampler\obj\Release\Downsampler.Properties.Resources.resources
+C:\Users\IDG-Work From Home\documents\visual studio 2013\Projects\Downsampler\Downsampler\obj\Release\Downsampler.csproj.GenerateResource.Cache
+C:\Users\IDG-Work From Home\documents\visual studio 2013\Projects\Downsampler\Downsampler\obj\Release\Downsampler.exe
+C:\Users\IDG-Work From Home\documents\visual studio 2013\Projects\Downsampler\Downsampler\obj\Release\Downsampler.pdb

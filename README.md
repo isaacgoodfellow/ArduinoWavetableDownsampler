@@ -21,5 +21,6 @@ Developed for use with my eurorack sampler sketch [here](https://github.com/isaa
  * Configuration file for different formats
  * Lowpass filter to avoid artifacts
  * Dithering
+ * Research porting to mac / linux
  * Processing on a separate thread / threads
  * Better UX

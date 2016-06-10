@@ -1,6 +1,6 @@
 # Downsampler
 
-![Main View](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+![Main View](https://github.com/isaacgoodfellow/ArduinoWavetableDownsampler/blob/master/Media/main.PNG)
 
 A converter for taking 8/16 bit .wav files and converting them into wavetable header files / c arrays.
 

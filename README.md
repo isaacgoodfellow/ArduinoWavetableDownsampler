@@ -1,8 +1,10 @@
 # Downsampler
 
+![Main View](https://github.com/isaacgoodfellow/ArduinoWavetableDownsampler/blob/master/Media/main.PNG)
+
 A converter for taking 8/16 bit .wav files and converting them into wavetable header files / c arrays.
 
-Developed for use with my eurorack sampler sketch [here](https://github.com/isaacgoodfellow/MozmoSampleBlaster)
+Developed for use with my eurorack sampler sketch [here](https://github.com/isaacgoodfellow/ArduinoWavetableDownsampler/blob/master/Media/main.PNG)
 
 ### Usage:
 
@@ -19,5 +21,6 @@ Developed for use with my eurorack sampler sketch [here](https://github.com/isaa
  * Configuration file for different formats
  * Lowpass filter to avoid artifacts
  * Dithering
+ * Research porting to mac / linux
  * Processing on a separate thread / threads
  * Better UX

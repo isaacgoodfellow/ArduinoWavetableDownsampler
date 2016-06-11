@@ -19,8 +19,7 @@ namespace Downsampler
         /// <summary>
         /// Stores the paths to the audio files (without trailing backslash).
         /// </summary>
-        private ArrayList mSoundFilePaths;
-        private HashSet<String> mOpenFiles;
+        private ArrayList mSoundFiles;
         private bool mIsCopying = false;
         #endregion
 
@@ -51,14 +50,17 @@ namespace Downsampler
                 return;
             }
 
-            // Add the full sound file path to mSoundFilePaths.
-            mSoundFilePaths.Add(Path.GetDirectoryName(filename));
+            Downsampler.WavetableRef wavref = new WavetableRef();
+            wavref.filename = Path.GetFileName(filename);
+            wavref.filedir = Path.GetDirectoryName(filename);
+            wavref.filepath = filename;
+            mSoundFiles.Add(wavref);
 
             fileGridView.Rows.Add(1);
-            int rowNum = fileGridView.Rows.Count - 1;
 
+            int rowNum = fileGridView.Rows.Count - 1;
             fileGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            fileGridView.Rows[rowNum].Cells[0].Value = Path.GetFileName(filename);
+            fileGridView.Rows[rowNum].Cells[0].Value = wavref.filename;
             fileGridView.Rows[rowNum].Cells[1].Value = "Copy (As Array)";
             fileGridView.Rows[rowNum].Cells[2].Value = "Remove";
 
@@ -67,10 +69,8 @@ namespace Downsampler
         public Form1()
         {
             InitializeComponent();
-
-            mSoundFilePaths = new ArrayList();
-            mOpenFiles = new HashSet<String>();
-
+            mSoundFiles = new ArrayList();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -102,9 +102,9 @@ namespace Downsampler
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fileGridView.Rows.Clear();
-            if (mSoundFilePaths != null)
+            if (mSoundFiles != null)
             {
-                mSoundFilePaths.Clear();
+                mSoundFiles.Clear();
             }
         }
 
@@ -118,12 +118,9 @@ namespace Downsampler
         {
             String filename = "";
 
-            if ((pIndex >= 0) && (pIndex < mSoundFilePaths.Count) && (pIndex < fileGridView.Rows.Count))
+            if (mSoundFiles.Count > pIndex && mSoundFiles[pIndex] != null)
             {
-                // Note: The filename is in cell 0 of the row, and its path (without trailing separator
-                // character) is in mSoundFilePaths.
-                filename = ((String)(mSoundFilePaths[pIndex]) + Path.DirectorySeparatorChar
-                         + (String)(fileGridView.Rows[pIndex].Cells[0].Value));
+                filename = ((Downsampler.WavetableRef)mSoundFiles[pIndex]).filepath;
             }
 
             return filename;
@@ -141,24 +138,17 @@ namespace Downsampler
             if (e.ColumnIndex == 1)
             {
                 string path = GetFullyPathedAudioFilename(e.RowIndex);
-                if (!mOpenFiles.Contains(path) && mIsCopying != true)
+                if (mIsCopying != true)
                 {
 
-                    try
-                    {
+
                         mIsCopying = true;
-                        mOpenFiles.Add(path);
                         statusText.Text = "Copying to clipboard";
                         string table = Utility.TableFromWav(GetFullyPathedAudioFilename(e.RowIndex));
                         System.Windows.Forms.Clipboard.SetText(table);
-                        mOpenFiles.Remove(path);
                         mIsCopying = false;
                         statusText.Text = "Ready";
-                    }
-                    catch (Exception exp)
-                    {
-                        MessageBox.Show("Error!");
-                    }
+
                 }
             }
 
@@ -168,7 +158,7 @@ namespace Downsampler
                 try
                 {
                     fileGridView.Rows.RemoveAt(e.RowIndex);
-                    mSoundFilePaths.RemoveAt(e.RowIndex);
+                    mSoundFiles.RemoveAt(e.RowIndex);
                 }
                 catch (Exception exc)
                 {
@@ -182,6 +172,22 @@ namespace Downsampler
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Avant Bard 2016. Makes 8 bit wavetables for use with arduino / what have you.");
+        }
+
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            FolderBrowserDialog folder = new FolderBrowserDialog();
+            if (folder.ShowDialog(this) == DialogResult.OK)
+            {
+                string dir = folder.SelectedPath;
+                foreach (WavetableRef wref in mSoundFiles)
+                {
+                    string filename = Path.GetFileNameWithoutExtension(wref.filename);
+                    System.IO.File.WriteAllText(dir + "\\" + filename.ToUpper()+".h", Utility.TableFromWav(wref.filepath));
+                }
+                Console.Out.WriteLine(dir);
+            }
         }
     }
 }

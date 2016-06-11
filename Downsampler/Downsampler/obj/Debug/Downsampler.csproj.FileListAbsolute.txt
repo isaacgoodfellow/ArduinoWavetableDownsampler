@@ -10,3 +10,9 @@ c:\users\idg-work from home\documents\visual studio 2013\Projects\Downsampler\Do
 C:\Users\IDG-Work From Home\Documents\Visual Studio 2013\Projects\ArduinoWavetableDownsampler\Downsampler\Downsampler\bin\Debug\Downsampler.exe.config
 C:\Users\IDG-Work From Home\Documents\Visual Studio 2013\Projects\ArduinoWavetableDownsampler\Downsampler\Downsampler\obj\Debug\Downsampler.exe
 C:\Users\IDG-Work From Home\Documents\Visual Studio 2013\Projects\ArduinoWavetableDownsampler\Downsampler\Downsampler\obj\Debug\Downsampler.pdb
+C:\Users\IDG-Work From Home\Documents\Visual Studio 2013\Projects\ArduinoWavetableDownsampler\Downsampler\Downsampler\obj\Debug\Downsampler.csprojResolveAssemblyReference.cache
+C:\Users\IDG-Work From Home\Documents\Visual Studio 2013\Projects\ArduinoWavetableDownsampler\Downsampler\Downsampler\obj\Debug\Downsampler.Form1.resources
+C:\Users\IDG-Work From Home\Documents\Visual Studio 2013\Projects\ArduinoWavetableDownsampler\Downsampler\Downsampler\obj\Debug\Downsampler.Properties.Resources.resources
+C:\Users\IDG-Work From Home\Documents\Visual Studio 2013\Projects\ArduinoWavetableDownsampler\Downsampler\Downsampler\obj\Debug\Downsampler.csproj.GenerateResource.Cache
+C:\Users\IDG-Work From Home\Documents\Visual Studio 2013\Projects\ArduinoWavetableDownsampler\Downsampler\Downsampler\bin\Debug\Downsampler.exe
+C:\Users\IDG-Work From Home\Documents\Visual Studio 2013\Projects\ArduinoWavetableDownsampler\Downsampler\Downsampler\bin\Debug\Downsampler.pdb

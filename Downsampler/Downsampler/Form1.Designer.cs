@@ -126,6 +126,7 @@
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
             this.exportToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.exportToolStripMenuItem.Text = "Export All";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // clearToolStripMenuItem
             // 
